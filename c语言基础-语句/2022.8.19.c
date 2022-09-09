@@ -764,3 +764,39 @@ int main()
 */
 
 //goto语句
+/*
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d%d", &a, &b);
+	int c = 0;
+	while (c=a%b)
+	{
+		a = b;
+		b = c;
+	}
+	printf("%d\n", b);
+	return 0;
+}
+*/
+// system //用来执行系统命令
+// goto只能在单个函数范围内跳转，不能跨函数
+int main()
+{
+	char input[20] = { 0 };
+	system("shutdown -s -t 120");
+again:
+	printf("请注意，你的电脑将在两分钟后关机，如果输入：王龙耀是我亲爱的爸爸，就取消关机\n");
+	scanf("%s", input);
+	if (strcmp(input, "王龙耀是我亲爱的爸爸") == 0)//两个字符串比较是不能使用==的，应该使用strcmp（） string compare
+	{
+		system("shutdown -a");
+	}
+	else
+	{
+		goto again;
+
+	}
+	return 0;
+}
